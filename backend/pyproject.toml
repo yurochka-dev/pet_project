@@ -9,6 +9,9 @@ readme = "README.md"
 python = "^3.12"
 fastapi = "^0.109.0"
 uvicorn = {extras = ["standard"], version = "^0.27.0"}
+pydantic-settings = "^2.1.0"
+motor = "^3.3.2"
+motor-types = "^1.0.0b4"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.14"
