@@ -17,6 +17,7 @@ motor-types = "^1.0.0b4"
 ruff = "^0.1.14"
 mypy = "^1.8.0"
 pre-commit = "^3.6.0"
+pytest = "^8.0.2"
 
 [tool.ruff]
 line-length=79
