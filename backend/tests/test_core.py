@@ -1,6 +1,11 @@
 import pytest
 
-from src.core import detect_winner, is_valid_move, mark_winner
+from src.core import (
+    calculate_row_by_col,
+    detect_winner,
+    is_valid_move,
+    mark_winner,
+)
 
 
 @pytest.mark.parametrize(
@@ -310,3 +315,27 @@ def test_detect_winner(board, expected):
 def test_mark_winner(board, winner, expected):
     mark_winner(board, winner)
     assert board == expected
+
+
+@pytest.mark.parametrize(
+    "col, expected",
+    (
+        (0, 5),
+        (1, 3),
+        (2, 2),
+        (3, 5),
+        (4, None),
+        (5, 2),
+        (6, 1),
+    ),
+)
+def test_calculate_row_by_col(col, expected):
+    board = [
+        [0, 0, 0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 2, 0, 0],
+        [0, 0, 0, 0, 1, 0, 2],
+        [0, 0, 1, 0, 1, 1, 2],
+        [0, 2, 2, 0, 2, 2, 1],
+        [0, 1, 1, 0, 1, 1, 1],
+    ]
+    assert calculate_row_by_col(board, col) == expected
