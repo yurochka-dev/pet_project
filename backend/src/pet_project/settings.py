@@ -10,6 +10,7 @@ class AppSettings(BaseSettings):
     # MongoDB
     MONGO_DB_URL: str
     MONGO_DB_DB: str
+    ALLOWED_ORIGINS: list[str]
 
 
 settings = AppSettings()  # type: ignore[call-arg]
