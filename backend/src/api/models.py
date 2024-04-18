@@ -1,7 +1,13 @@
 from datetime import datetime
 from typing import Any
 
-from pydantic import BaseModel, Field, NonNegativeInt, ValidationError
+from pydantic import (
+    BaseModel,
+    Field,
+    NonNegativeInt,
+    ValidationError,
+    computed_field,
+)
 
 from ..constants import PlayerEnum
 from .fields import PyObjectId
@@ -24,6 +30,12 @@ class StartGame(BaseModel):
     player: str
 
 
+class Move(BaseModel):
+    row: int
+    col: int
+    val: int
+
+
 class Game(MongoDBModel):
     class Meta:
         collection_name = "games"
@@ -33,11 +45,12 @@ class Game(MongoDBModel):
 
     move_number: int = 1
     board: list[list[int]]
+    moves: list[Move] = Field(default_factory=list)
     winner: PlayerEnum | None = None
 
     finished_at: datetime | None = None
 
-    @property
+    @computed_field
     def next_player_to_move_username(self) -> str | None:
         return self.player1 if self.move_number % 2 else self.player2
 
