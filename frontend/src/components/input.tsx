@@ -13,7 +13,7 @@ export function PlayerNameInput({
         <div>
             <label
                 htmlFor="playerName"
-                className="block text-sm font-medium leading-6 text-gray-500"
+                className="block text-sm font-medium leading-6 text-gray-500 dark:text-slate-300"
             >
                 {label}
             </label>
@@ -33,6 +33,7 @@ export function PlayerNameInput({
                         focus:ring-2 focus:ring-inset
                         sm:text-sm sm:leading-6
                         text-gray-500 placeholder:text-gray-300 ring-gray-200 focus:ring-gray-300
+                        dark:bg-slate-800 dark:text-slate-300 dark:placeholder:text-slate-600 dark:ring-slate-600 dark:focus:ring-slate-500
                     `}
                 />
             </div>

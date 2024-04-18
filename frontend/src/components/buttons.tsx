@@ -13,6 +13,7 @@ export function PetProjectButton({ label, onClickHandler }: PetProjectButtonProp
                 text-sm font-semibold leading-6 text-white
                 shadow-sm
                 bg-cyan-600 hover:bg-cyan-500
+                dark:bg-violet-600 dark:hover:bg-violet-500
             `}
         >
             {label}

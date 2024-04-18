@@ -3,6 +3,7 @@
 import { BACKEND_API_BASE_URL } from "@/constants";
 import { PetProjectButton } from "@/components/buttons";
 import { PlayerNameInput } from "@/components/input";
+import { setPlayerNameInLocalStorage } from "@/utils/localStorageUtils";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -22,8 +23,8 @@ export default function StartGame() {
             return response.json();
         })
         .then((data) => {
+            setPlayerNameInLocalStorage(data.id, playerName);
             router.push(`/games/${data.id}`);
-            console.log("Success", data);
         })
         .catch((err) => {
             console.log("Something went wrong", err);
@@ -32,7 +33,7 @@ export default function StartGame() {
 
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-            <h2 className="text-center mt-10 text-2xl font-bold leading-9 tracking-tight text-gray-600">
+            <h2 className="text-center mt-10 text-2xl font-bold leading-9 tracking-tight text-gray-600 dark:text-slate-200">
                 New Game
             </h2>
 
