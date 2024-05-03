@@ -1,2 +1,5 @@
-export const BACKEND_API_BASE_URL = "http://127.0.0.1:8000"
-export const BACKEND_WS_BASE_URL = "ws://127.0.0.1:8000"
+// 'NEXT_PUBLIC' prefix is important to be able to access it
+import { env } from 'next-runtime-env';
+
+export const BACKEND_API_BASE_URL = env("NEXT_PUBLIC_BACKEND_API_BASE_URL")
+export const BACKEND_WS_BASE_URL = env("NEXT_PUBLIC_BACKEND_WS_BASE_URL")
